@@ -36,7 +36,6 @@ class ApiTools(commands.Cog):
         return parsed, status
 
     @commands.group()
-    @commands.is_owner()
     async def apitools(self, ctx):
         """Group for API tools."""
 
@@ -93,14 +92,14 @@ class ApiTools(commands.Cog):
             return await ctx.send(
                 "An error occured while trying to post your request. Ensure the URL is correct etcetra."
             )
-        color = discord.Color.green() if status == 200 else discord.Color.red()
-        msg = json.dumps(data, indent=4)[:2030]
-        if len(msg) > 2029:
-            msg += "\n..."
-        embed = discord.Embed(
-            title=f"Results for **POST** {url}",
-            color=color,
-            description=box(msg, lang="json"),
-        )
-        embed.add_field(name="Status Code", value=status)
-        await ctx.send(embed=embed)
+        # color = discord.Color.green() if status == 200 else discord.Color.red()
+        # msg = json.dumps(data, indent=4)[:2030]
+        # if len(msg) > 2029:
+        #     msg += "\n..."
+        # embed = discord.Embed(
+        #     title=f"Results for **POST** {url}",
+        #     color=color,
+        #     description=box(msg, lang="json"),
+        # )
+        # embed.add_field(name="Status Code", value=status)
+        # await ctx.send(embed=embed)
